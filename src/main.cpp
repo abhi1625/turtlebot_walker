@@ -39,5 +39,5 @@ int main(int argc, char* argv[]) {
     // move the robot based on the defined behaviour
     walk.moveRobot();
 
-    return 0;    
+    return 0;
 }

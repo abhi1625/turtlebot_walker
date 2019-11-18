@@ -30,15 +30,15 @@
  * @created on : Nov 17, 2019
  */
 
-#ifndef INCLUDE_TURTLEBOT_WALKER_WALKER_HPP_
-#define INCLUDE_TURTLEBOT_WALKER_WALKER_HPP
+#ifndef INCLUDE_WALKER_HPP_
+#define INCLUDE_WALKER_HPP_
 
 // ROS headers
+#include <geometry_msgs/Twist.h>
+#include <iostream>
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
-#include <geometry_msgs/Twist.h>
 // CPP headers
-#include <iostream>
 
 /**
  *  @brief Class Walker:
@@ -59,9 +59,9 @@ class Walker {
      * @brief       Velocity publisher
      */    
     ros::Publisher velocityPub;
-    
-    bool isObstacle;                // boolean to detect if there is a collision    
-    geometry_msgs::Twist velMsg;    // Variable to detect 
+
+    bool isObstacle;              // boolean to detect if there is a collision
+    geometry_msgs::Twist velMsg;  // Variable to detect
 
  public:
     /**
@@ -99,4 +99,4 @@ class Walker {
     bool checkObstacle();
 };
 
-#endif // INCLUDE_TURTLEBOT_WALKER_WALKER_HPP
+#endif  // INCLUDE_WALKER_HPP_

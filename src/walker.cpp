@@ -77,7 +77,7 @@ void Walker::laserScanCb(const sensor_msgs::LaserScan::ConstPtr& velMsg) {
 }
 
 bool Walker::checkObstacle() {
-    return isObstacle; // returns true if an obstacle is detected
+    return isObstacle;  // returns true if an obstacle is detected
 }
 
 void Walker::moveRobot() {
