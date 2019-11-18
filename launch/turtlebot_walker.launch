@@ -10,5 +10,10 @@
         output="screen"
         launch-prefix="gnome-terminal --command"
     />
-
+  
+    <node
+        pkg="rosbag"
+        name="rosbag_recorder"
+        type="record" args="--all --output-name=$(find turtlebot_walker)/results/turtlebot_walker.bag -x /camera/(.*) --duration=$(arg record_time)" if="$(arg record)"
+    />
 </launch>
