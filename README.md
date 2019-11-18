@@ -47,3 +47,18 @@ Finally, run the `walker` node using:
 ```
 rosrun turtlebot_walker turtlebot_walker
 ```
+## Recording bag files
+To enable recording of all topics, you can use the argument `record:=true`(By default it is set as false).
+```
+roslaunch turtlebot_walker turtlebot_walker.launch record:=true
+```
+You can also specify the time for which you want to record the bag file using:
+```
+roslaunch turtlebot_walker turtlebot_walker.launch record:=true record_time:=30
+```
+This will record the bag file for 30s and save it in the results subdirectory.
+
+To examine the recorded bag file, use:
+```
+rosbag info results/turtlebot_walker.bag
+```
