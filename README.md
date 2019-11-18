@@ -1,5 +1,5 @@
 # turtlebot_walker
-<a href='https://github.com/abhi1625/beginner_tutorials/blob/master/LICENSE'><img src='https://img.shields.io/badge/License-MIT-brightgreen.svg'/></a>
+<a href='https://github.com/abhi1625/turtlebot_walker/blob/master/LICENSE'><img src='https://img.shields.io/badge/License-MIT-brightgreen.svg'/></a>
 
 ## Overview
 A simple walker algorithm, like roomba, implemented on turtlebot. This project is a part of the gazebo turorial for ENPM808X - Software Development for robotics course.
