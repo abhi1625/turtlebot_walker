@@ -65,3 +65,41 @@ Walker::~Walker() {
     velocityPub.publish(velMsg);
 }
 
+void Walker::laserScanCb(const sensor_msgs::LaserScan::ConstPtr& velMsg) {
+    for (int i=0; i < velMsg->ranges.size(); i++) {
+        if (velMsg->ranges[i] < 0.70) {
+            isObstacle = true;
+            ROS_WARN_STREAM("Obstacle detected");
+            return;
+        }
+    }
+    isObstacle = false;
+}
+
+bool Walker::checkObstacle() {
+    return isObstacle; // returns true if an obstacle is detected
+}
+
+void Walker::moveRobot() {
+    // initialize loop rate for the node
+    ros::Rate loop_rate(10);
+    // publish velocity commands till the node is running
+    while (ros::ok()) {
+        // if obstacle detected then stop and turn the turtlebot
+        if (checkObstacle()) {
+            ROS_INFO_STREAM("Obstacle ahead, changing direction");
+            velMsg.linear.x = 0.0;
+            velMsg.angular.z = -1.0;
+        } else {
+            // stop turning and keep moving forward
+            ROS_INFO_STREAM("No obstacle detected, moving forward");
+            velMsg.linear.x = 0.3;
+            velMsg.angular.z = 0.0;
+        }
+        // publish the velocities
+        velocityPub.publish(velMsg);
+
+        ros::spinOnce();
+        loop_rate.sleep();
+    }
+}
