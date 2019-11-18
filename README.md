@@ -62,3 +62,16 @@ To examine the recorded bag file, use:
 ```
 rosbag info results/turtlebot_walker.bag
 ```
+## Playing the bag file
+To inspect the recorded bag file, go to the results subdirectory and enter:
+```
+rosbag info turtlebot_walker.bag
+```
+This will give the information about all the topics recorded and duration of recording of the bag file. To play the bag file use:
+```
+rosbag play turtlebot_walker.bag
+```
+Now, you can view the recorded messages being published on the topic `/mobile_base/commands/velocity` as:
+```
+rostopic echo /mobile_base/commands/velocity
+```
